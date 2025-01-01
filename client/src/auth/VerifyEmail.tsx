@@ -30,6 +30,7 @@ const VerifyEmail = () => {
       inputRef.current[index - 1].focus();
     }
   };
+  
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const verificationCode = otp.join("");
