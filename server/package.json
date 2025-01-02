@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon server/index.ts",
     "stripe": "stripe listen --forward-to localhost:8000/api/v1/order/webhook",
-    "build": "npm install && npm install --prefix client && npm run build --prefix client",
-    "start": "nodemon server/index.ts"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts --watch src --exec ts-node"
   },
   "engines": {
     "node": "18.x"
