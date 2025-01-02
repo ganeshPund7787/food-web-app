@@ -14,8 +14,6 @@ dotenv.config();
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
-
 const DIRNAME = path.resolve();
 
 app.use(bodyParser.json({ limit: "10mb" }));
@@ -39,9 +37,8 @@ app.use("*", (_, res) => {
   res.sendFile(path.resolve(DIRNAME, "client", "dist", "index.html"));
 });
 
-app.listen(PORT, () => {
+app.listen(8000, () => {
   connectDB();
   console.log("thsese are the memory usage: ", process.memoryUsage());
-  console.log(`Server listen at port ${PORT}`);
+  console.log(`Server listen at port 8000`);
 });
-
