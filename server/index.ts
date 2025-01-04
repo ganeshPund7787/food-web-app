@@ -23,8 +23,7 @@ app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(express.json());
 app.use(cookieParser());
 const corsOptions = {
-  // origin: "http://localhost:5173",
-  origin: "https://cook4you.onrender.com",
+  origin: process.env.PROJECT_ORIGIN!,
   credentials: true,
 };
 app.use(cors(corsOptions));
