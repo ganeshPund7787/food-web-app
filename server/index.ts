@@ -14,15 +14,17 @@ dotenv.config();
 
 const app = express();
 
+const PORT = process.env.PORT || 3000;
+
 const DIRNAME = path.resolve();
+
 
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(express.json());
 app.use(cookieParser());
-
 const corsOptions = {
-  origin: process.env.FRONTEND_URL as string,
+  origin: "http://localhost:5173",
   credentials: true,
 };
 app.use(cors(corsOptions));
@@ -37,8 +39,7 @@ app.use("*", (_, res) => {
   res.sendFile(path.resolve(DIRNAME, "client", "dist", "index.html"));
 });
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
   connectDB();
-  console.log("thsese are the memory usage: ", process.memoryUsage());
-  console.log(`Server listen at port 8000`);
+  console.log(`Server listen at port ${PORT}`);
 });

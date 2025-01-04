@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateResetSuccessEmailHtml = exports.generatePasswordResetEmailHtml = exports.generateWelcomeEmailHtml = exports.htmlContent = void 0;
-exports.htmlContent = `
+export const htmlContent: string = `
     <!DOCTYPE html>
     <html>
     <head>
@@ -78,8 +75,9 @@ exports.htmlContent = `
     </body>
     </html>
     `;
-const generateWelcomeEmailHtml = (name) => {
-    return `
+
+export const generateWelcomeEmailHtml = (name: string) => {
+  return `
           <html>
             <head>
               <style>
@@ -116,26 +114,26 @@ const generateWelcomeEmailHtml = (name) => {
             <body>
               <div class="email-container">
                 <div class="email-header">
-                  <h1>Welcome to Patel Food!</h1>
+                  <h1>Welcome to Cook4You Food!</h1>
                 </div>
                 <div class="email-body">
                   <p>Hi ${name},</p>
                   <p>Congratulations! Your email has been successfully verified.</p>
-                  <p>We are excited to have you on board at Patel Food. Explore our platform and enjoy our services.</p>
+                  <p>We are excited to have you on board at Cook4You Food. Explore our platform and enjoy our services.</p>
                   <p>If you have any questions or need assistance, feel free to reach out to us.</p>
-                  <p>Best Regards,<br/>The Patel Food Team</p>
+                  <p>Best Regards,<br/>The Cook4You Food Team</p>
                 </div>
                 <div class="email-footer">
-                  <p>&copy; 2024 Patel Food. All rights reserved.</p>
+                  <p>&copy; 2024 Cook4You Food. All rights reserved.</p>
                 </div>
               </div>
             </body>
           </html>
         `;
 };
-exports.generateWelcomeEmailHtml = generateWelcomeEmailHtml;
-const generatePasswordResetEmailHtml = (resetURL) => {
-    return `
+
+export const generatePasswordResetEmailHtml = (resetURL: string) => {
+  return `
       <html>
         <head>
           <style>
@@ -189,19 +187,19 @@ const generatePasswordResetEmailHtml = (resetURL) => {
               <p>We received a request to reset your password. Click the button below to reset it.</p>
               <a href="${resetURL}" class="button">Reset Password</a>
               <p>If you didn't request a password reset, please ignore this email.</p>
-              <p>Thank you,<br/>The Patel Food Team</p>
+              <p>Thank you,<br/>The Cook4You Food Team</p>
             </div>
             <div class="email-footer">
-              <p>&copy; 2024 Patel Food. All rights reserved.</p>
+              <p>&copy; 2024 Cook4You Food. All rights reserved.</p>
             </div>
           </div>
         </body>
       </html>
     `;
 };
-exports.generatePasswordResetEmailHtml = generatePasswordResetEmailHtml;
-const generateResetSuccessEmailHtml = () => {
-    return `
+
+export const generateResetSuccessEmailHtml = () => {
+  return `
       <html>
         <head>
           <style>
@@ -244,14 +242,13 @@ const generateResetSuccessEmailHtml = () => {
               <p>Hi,</p>
               <p>Your password has been successfully reset. You can now log in with your new password.</p>
               <p>If you did not request this change, please contact our support team immediately.</p>
-              <p>Thank you,<br/>The Patel Food Team</p>
+              <p>Thank you,<br/>The Cook4You Food Team</p>
             </div>
             <div class="email-footer">
-              <p>&copy; 2024 Patel Food. All rights reserved.</p>
+              <p>&copy; 2024 Cook4You Food. All rights reserved.</p>
             </div>
           </div>
         </body>
       </html>
     `;
 };
-exports.generateResetSuccessEmailHtml = generateResetSuccessEmailHtml;

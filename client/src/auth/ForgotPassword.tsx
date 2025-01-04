@@ -1,16 +1,25 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useUserStore } from "@/store/useUserStore";
 import { Loader2, Mail } from "lucide-react";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState<string>("");
-  const loading = false;
 
+  const { loading, forgotPassword } = useUserStore();
+
+  const handleForgotEmailSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    await forgotPassword(email);
+  };
   return (
     <div className="flex items-center justify-center min-h-screen w-full">
-      <form className="flex flex-col gap-5 md:p-8 w-full max-w-md rounded-lg mx-4">
+      <form
+        onSubmit={handleForgotEmailSubmit}
+        className="flex flex-col gap-5 md:p-8 w-full max-w-md rounded-lg mx-4"
+      >
         <div className="text-center">
           <h1 className="font-extrabold text-2xl mb-2">Forgot Password</h1>
           <p className="text-sm text-gray-600">
@@ -32,7 +41,7 @@ const ForgotPassword = () => {
             <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait
           </Button>
         ) : (
-          <Button className="bg-green-500 hover:bg-green-600">
+          <Button type="submit" className="bg-green-500 hover:bg-green-600">
             Send Reset Link
           </Button>
         )}

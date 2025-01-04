@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -81,7 +80,6 @@ const Restaurant = () => {
       }
     };
     fetchRestaurant();
-    
   }, []);
 
   return (
@@ -191,16 +189,19 @@ const Restaurant = () => {
             </div>
             <div className="my-5 w-fit">
               {loading ? (
-                <Button disabled className="bg-orange hover:bg-hoverOrange">
+                <button
+                  disabled
+                  className="bg-green-400 flex items-center p-2 rounded-md text-black dark:text-white text-sm"
+                >
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                   Please wait
-                </Button>
+                </button>
               ) : (
-                <Button className="bg-green-500 hover:bg-green-600">
+                <button className="bg-green-500 p-2 rounded-md text-black dark:text-white text-sm hover:bg-green-600">
                   {restaurant
                     ? "Update Your Restaurant"
                     : "Add Your Restaurant"}
-                </Button>
+                </button>
               )}
             </div>
           </form>
